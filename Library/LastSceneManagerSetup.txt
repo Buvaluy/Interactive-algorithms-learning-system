@@ -1,0 +1,16 @@
+sceneSetups:
+- path: Assets/main.unity
+  isLoaded: 1
+  isActive: 1
+- path: Assets/lowLevel/lowLvl1.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/lowLevel/lowLvl2.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/hardLevel/hardLvl1.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/hardLevel/hardLvl2.unity
+  isLoaded: 0
+  isActive: 0
