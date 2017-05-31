@@ -1,7 +1,7 @@
 sceneSetups:
 - path: Assets/main.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
 - path: Assets/lowLevel/lowLvl1.unity
   isLoaded: 0
   isActive: 0
@@ -14,3 +14,12 @@ sceneSetups:
 - path: Assets/hardLevel/hardLvl2.unity
   isLoaded: 0
   isActive: 0
+- path: Assets/menu/ScoreAfterFin.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/menu/Score.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/menu/EnterName.unity
+  isLoaded: 1
+  isActive: 1

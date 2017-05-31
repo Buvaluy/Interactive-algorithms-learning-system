@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
     private bool dragging = false;
     private bool bStartCoord;
     private Color hoverColor = Color.white;
+
+    public static string nickName;
+    public InputField inputField;
 
     private Vector3 startPos;
     private Vector3 screenSpace;
@@ -19,6 +24,11 @@ public class MainMenu : MonoBehaviour {
     {
         renderer = GetComponent<Renderer>();
         originalColor = renderer.material.color;
+        if (SceneManager.GetActiveScene().name == "ScoreAfterFin")
+        {
+            Text []objText = FindObjectsOfType<Text>();// .Find("Text1");
+            objText[0].text = nickName;
+        }
     }
 
     // Update is called once per frame
@@ -64,9 +74,41 @@ public class MainMenu : MonoBehaviour {
         curPosition.z = 1;
         transform.position = curPosition;
 
-        if (curPosition == startPos)
+        if (curPosition.x == startPos.x && curPosition.y == startPos.y)
         {
-            //load scene..
+            string name = gameObject.name;
+            string sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.UnloadSceneAsync(sceneName);
+            if (name == "hardPazzle")
+            {
+                SceneManager.LoadSceneAsync("hardLvl1");
+            }
+            else if (name == "simplePuzzle")
+            {
+                SceneManager.LoadSceneAsync("lowLvl1");
+            }
+            else if (name == "score")
+            {
+                SceneManager.LoadSceneAsync("Score");
+            }
+            else if (name == "return")
+            {
+                Application.Quit();
+            }
+            else if (name == "returnMainMenu")
+            {
+                SceneManager.LoadSceneAsync("main");
+            }
+            else if (name == "ok")
+            {
+                
+                nickName = inputField.text;
+                SceneManager.LoadSceneAsync("main");
+            }
+            else// if (name == "diplomWork")
+            {
+
+            }
         }
     }
 }

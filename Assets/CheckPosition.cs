@@ -28,9 +28,10 @@ public class CheckPosition : MonoBehaviour {
                 SceneManager.UnloadSceneAsync(name);
                 char cl =  name.ToCharArray()[name.Length - 1];
                 int level = Int32.Parse(cl.ToString());
-                if (level == 5)
+                if (level == 2)
                 {
-                    //fin game
+                    SceneManager.LoadSceneAsync("ScoreAfterFin");
+                    return;
                 }
                 ++level;
                 name = name.Replace(name.ToCharArray()[name.Length - 1].ToString(), level.ToString());
